@@ -33,8 +33,6 @@ public class HelloWorldService {
     @Autowired
     private NameRepository nameRepository;
 
-    private String DEFUALT_NAME = "score";
-    
     public void insertMessage(){
 	Name name = new Name();
 	Format formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -45,11 +43,11 @@ public class HelloWorldService {
    
     public String getHelloMessage() {
         Iterator<Name> names = nameRepository.findAll().iterator();
-        String name = DEFUALT_NAME;
+        StringBuilder nameString = new StringBuilder();
         while(names.hasNext()){
-            name = names.next().getValue();
+        	nameString.append("Hello what time is it? It's " + names.next().getValue() + "<br>");
         }
-        return "Hello " + name;
+        return nameString.toString();
     }
 
 }
