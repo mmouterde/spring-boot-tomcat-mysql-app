@@ -18,8 +18,12 @@ package sample.tomcat.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
 import sample.tomcat.domain.Name;
 
+import java.text.Format;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Iterator;
 
 @Component
@@ -36,7 +40,7 @@ public class HelloWorldService {
 	Format formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	String s = formatter.format(new Date());
 	name.setValue(s);
-	nameRepository.save(message);
+	nameRepository.save(name);
     }
    
     public String getHelloMessage() {
