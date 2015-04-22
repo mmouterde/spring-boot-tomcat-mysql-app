@@ -30,7 +30,15 @@ public class HelloWorldService {
     private NameRepository nameRepository;
 
     private String DEFUALT_NAME = "score";
-
+    
+    public void insertMessage(){
+	Name name = new Name();
+	Format formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	String s = formatter.format(new Date());
+	name.setValue(s);
+	nameRepository.save(message);
+    }
+   
     public String getHelloMessage() {
         Iterator<Name> names = nameRepository.findAll().iterator();
         String name = DEFUALT_NAME;
